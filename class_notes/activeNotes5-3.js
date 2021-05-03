@@ -27,20 +27,55 @@
 
 // console.log(console)
 
+class Message{
+    constructor(author, board, title, content){
+        this.author=author; //  when you construct message, pass user john as first argument
+        this.board=board;
+        this.title=title;
+        this.content=content;
+        this.createdAt=new Date();
+    }
+}
+
 class User{
     constructor(firstName, lastName, username){
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
+        this.messages = [];
     }
-    fullName(){
+
+    fullName(){ // <- this is the same as fullName = function(){}
         return this,firstName+" "+this.lastName;
+    }
+
+    sendMessage(board,content,title,content){
+        const msg = new Message(this, title, content);
+        board.messages.push(msg);
+        this.messages.push(msg);
+        return msg;
     }
 }
 
-class Message{
-    constructor(title, content){
-        this.title = title;
-        this.content = content;
+class MessageBoard{
+    constructor(name, topic){
+        this.name=name;
+        this.topic=topic;
+        this.messages=[];
     }
+    
 }
+
+const john =  new User("John", "M", "JohnM");
+const msg = new Message(john, "Anyone need help?", "I love helping!");
+
+const puppersBoard = new MessageBoard(
+    "Puppers & Doggos",
+    "Woofers but no Yappers");
+
+
+john.sendMessage(
+    puppersBoard,
+    "Dogs nee Help Too",
+    "or do they?"
+)
