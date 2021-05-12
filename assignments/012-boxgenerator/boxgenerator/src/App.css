@@ -1,0 +1,25 @@
+.boxContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.colorBoxes {
+  margin: 10px;
+}
+.formBox {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+}
+.formBox label {
+  width: 30%;
+}
+.formBox input {
+  width: 70%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
